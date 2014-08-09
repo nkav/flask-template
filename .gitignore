@@ -1,0 +1,22 @@
+#compiled python files
+*.pyc
+
+#configuration details 
+app.cfg
+oauth.py
+
+#static files
+static/
+uploads/
+
+#flask-migrations
+migrations/
+
+#vim can be used simultaneously
+*.swp
+
+#database files
+*.db
+
+#Other stuff
+*.DS_STORE

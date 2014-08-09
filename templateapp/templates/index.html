@@ -1,0 +1,15 @@
+{% extends "page.html" %}
+{% block body %}
+  <h1>Home Page</h1>
+  {% if 'email' not in session and 'twitter_user' not in session %}
+    <p><a href="{{ url_for('login') }}">Login with email.</a>
+    <p><a href="{{ url_for('twitterlogin') }}">Login with Twitter.</a>
+    <p><a href="{{ url_for('register') }}">Register a new account.</a>
+  {% elif 'email' in session %}
+    <p>Logged in as {{ session['email'] }}. </p>
+    <p><a href="{{ url_for('logout') }}">Logout</a>
+  {% else %}
+    <p>Logged in as {{ session['twitter_user'] }}. </p>
+    <p><a href="{{ url_for('logout') }}">Logout</a>
+  {% endif %}
+{% endblock %}
