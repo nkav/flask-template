@@ -3,7 +3,7 @@
 
 #configuration details 
 app.cfg
-oauth.py
+settings.py
 
 #static files
 static/
