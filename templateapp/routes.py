@@ -1,6 +1,5 @@
 from templateapp import app
 from flask import request, url_for, session, redirect, escape, flash, render_template
-from settings import config
 import models, forms
 from flask_oauth import OAuth
 from decorators import anon_required, login_required
@@ -11,10 +10,9 @@ twitter = oauth.remote_app('twitter',
     request_token_url='https://api.twitter.com/oauth/request_token',
     access_token_url='https://api.twitter.com/oauth/access_token',
     authorize_url='https://api.twitter.com/oauth/authenticate',
-    consumer_key=config['TWITTER_KEY'], 
-    consumer_secret=config['TWITTER_SECRET']
+    consumer_key=app.config['TWITTER_KEY'],
+    consumer_secret=app.config['TWITTER_SECRET']
 )
-
 
 @twitter.tokengetter
 def get_twitter_token(token=None):
